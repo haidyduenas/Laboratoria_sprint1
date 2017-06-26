@@ -33,3 +33,15 @@ console.log(objt.area());
 
 var ejercicio2 =  new Persona("Sú",23,8,1991);
 console.log(ejercicio2.edad());
+//Ejercicio 3
+
+function informacionPersonal(nombre,edad,pasatiempo){
+	this.nombre = nombre;
+	this.edad = edad;
+	this.pasatiempos = pasatiempos;
+	this.mensaje=function(){ 
+		return"Hola soy " + this.nombre + " tengo " + this.edad + " años y me gusta " + this.pasatiempo;
+	}
+}
+ var ejercicio3 = new informacionPersonal("Haidy",24,"mirar peliculas");
+console.log(ejercicio3.mensaje());
