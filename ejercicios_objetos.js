@@ -1,3 +1,6 @@
+
+var 
+
 //Ejercicio 1
 function Rectangulo(base,altura) {
   this.base = base;
@@ -45,3 +48,5 @@ function informacionPersonal(nombre,edad,pasatiempo){
 }
  var ejercicio3 = new informacionPersonal("Haidy",24,"mirar peliculas");
 console.log(ejercicio3.mensaje());
+
+

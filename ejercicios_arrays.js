@@ -10,9 +10,6 @@ describe("Ejercicios Arrays", function(){
     it("Prueba de [2,3] y 10", function(){
       assert.equal(60, ejercicios.ejercicio1([2,3], 10));
     });
-    it("Prueba de [2,3] y "Hola"", function(){
-      assert.equal(6, ejercicios.ejercicio1([2,3], "Hola"));
-    });
     it("Prueba de [2,3] y nada", function(){
       assert.equal(6, ejercicios.ejercicio1([2,3]));
     });
