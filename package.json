@@ -1,0 +1,19 @@
+{
+  "name": "pruebas",
+  "version": "0.0.1",
+  "description": "",
+  "main": "ejercicios_arrays.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haidyduenas/Laboratoria_sprint1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haidyduenas/Laboratoria_sprint1/issues"
+  },
+  "homepage": "https://github.com/haidyduenas/Laboratoria_sprint1#readme"
+}

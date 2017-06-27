@@ -1,37 +1,9 @@
 var assert = require('assert');
 
-var ejercicios = new EjerciciosArray();
-
-
-
-
-describe("Ejercicios Arrays", function(){
-  describe("Ejercicio 1", function(){
-    it("Prueba de [2,3] y 10", function(){
-      assert.equal(60, ejercicios.ejercicio1([2,3], 10));
-    });
-    it("Prueba de [2,3] y nada", function(){
-      assert.equal(6, ejercicios.ejercicio1([2,3]));
-    });
-    it("Prueba de 2 y 3", function(){
-      assert.equal(6, ejercicios.ejercicio1(2,3));
-    });
-  });
-
-  describe("Ejercicio 2", function(){
-    it("cuando es [996548337, 997616207], 207", function(){
-      assert.deepEqual([997616207], ejercicios.ejercicio2([996548337, 997616207], 207));
-    });
-    it("cuando es [996548337, 97616207], 207", function(){
-      assert.deepEqual([97616207], ejercicios.ejercicio2([996548337, 97616207], 207));
-    });
-  });
-
-});
 //Ejercicio 1
 
 
-this.ejercicio1 = function(arreglo,numero){
+function ejercicio1 (arreglo,numero){
 	var res = 0
   	if(Array.isArray(arreglo))
   	{
@@ -52,12 +24,19 @@ this.ejercicio1 = function(arreglo,numero){
 }
 
 //Ejercicio 2
-this.ejercicio2 =function(array,num){
-return array.filter(function(elem){
-	var primera = elem.toString().substr(0,num.length);
-	var ultimos = elem.toString().substr(-num.length);
-	return (primeras == num || ultimos == num); 
-});
+function esteTelefonoSirve(array,num){
+  var resultado = array.filter(function(elem){
+    elem=elem.toString();
+    num=num.toString();
+    if(elem.substr(0,num.length) == num || elem.substr(-num.length) == num){
+      return true;
+    }else{
+
+      return false;
+    }
+    
+  });
+  return resultado;
 }
 //console.log(esteTelefonoSirve([784162936294,462387784,367245346],784));
 
@@ -75,7 +54,7 @@ function multiplos(array,num2){
   });
   return respuesta;
 }
-console.log(multiplos([88,1234,28],2));
+//console.log(multiplos([88,1234,28],2));
 
 // Ejercicio 4
 
@@ -87,26 +66,26 @@ function ordenar(array){
    });
  return respuesta;
 }
-console.log(ordenar([2,5,7,2,3,8,10]));
+//console.log(ordenar([2,5,7,2,3,8,10]));
  
 // Ejercicio 5
-function grados(array){
+function ejercicio5(array){
   var respuesta = array.map(function(elem){return 9/5 *elem + 32;});
   return respuesta;
 }
-console.log(grados([15]));
+//console.log(grados([15]));
 
 //Ejercicio 6
-function multiplicacion(arreglo){
+function ejercicio6(arreglo){
   var rpta = arreglo.reduce(function(n1 ,n2){
-    return n1*n2
+    return n1*n2;
   });
   return rpta;
 }
-console.log(multiplicacion([1,2,3,4]));
+//console.log(multiplicacion([1,2,3,4]));
 
 // Ejercicio 7
-function fecha(array){
+function ejercicio7(array){
  var respuesta = []; 
  array.forEach(function(edad){
       if(edad%2==0 && edad > 18){
@@ -118,6 +97,44 @@ function fecha(array){
   });
   return respuesta;
 }
-console.log(fecha([20,30,13]));
+//console.log(fecha([20,30,13]));
 
-
+describe("Ejercicios de array",function(){
+  describe("Ejercicio 1",function(){
+    it("Prueba de [2,3],9",function(){
+      assert.equal(54,ejercicio1([2,3],9));
+    });
+  });
+  describe("Ejercicio 2",function(){
+    it("Prueba de [784162936294,462387784,367245346],784",function(){
+      assert.deepEqual([784162936294,462387784],esteTelefonoSirve([784162936294,462387784,367245346],784));
+    });
+  });
+  describe("Ejercicio 3",function(){
+    it("Prueba de [88,1234,29],2",function(){
+      assert.deepEqual([88,1234],multiplos([88,1234,29],2));
+    });
+  });
+  describe("Ejercicio 4",function(){
+    it("Prueba de [2,5,7,2,3,8,10]",function(){
+      assert.deepEqual([5, 11, 15, 5, 7, 17, 21],ordenar([2,5,7,2,3,8,10]));
+    });
+    
+  });
+  describe("Ejercicio 5",function(){
+    it("Prueba de [15]",function(){
+      assert.deepEqual([59],ejercicio5([15]));
+    });
+  });
+  describe("Ejercicio 6",function(){
+    it("Prueba de [1,2,3,4]",function(){
+      assert.deepEqual(24,ejercicio6([1,2,3,4]));
+    });
+  });
+  describe("Ejercicio 7",function(){
+    it("Prueba de [20,30,13]",function(){
+    assert.deepEqual([1997, 1987],ejercicio7([20,30,13]))
+    });
+    
+  });
+});
