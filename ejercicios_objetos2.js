@@ -1,19 +1,20 @@
 var assert = require('assert');
+
 //Ejercicio 1
 function sumaParametros(numInicial,numFinal){
 	var objeto = { 
 	 inicio : numInicial,
 	 fin	: numFinal
-	suma : function(inicio,fin){
-	resultado = "";
-	for (var i = 0; i < objeto.length; i++) {
-		resultado = resultado + objeto[i];
-
-			}
-	return resultado;
-		}
+  };
+  var resultado = 0;
+	for (var i = objeto.inicio; i <= objeto.fin; i++) 
+  {
+		  resultado = resultado + i;
 	}
-}
+	  return resultado    
+		}
+
+
 //Ejercicio 2 Super Coder
 
 function SuperCoder(nombre,edad,ocupacion,genero){
@@ -47,7 +48,6 @@ function textos(arreglo){
 }
 
 //Ejercicio 4
-
 function ClinicaLab(nombre,apellido,edad,genero,ciudad,pais){
 	this.nombre		= nombre;
 	this.apellido	= apellido;
@@ -57,7 +57,31 @@ function ClinicaLab(nombre,apellido,edad,genero,ciudad,pais){
 	this.pais 		= pais;
 	this.ficha 		= function(){
 
-		return "Nombre : " +this.nombre + this.apellido+ "\n"  + "Edad :"+ this.edad + "\n"  + "Pais : " + this.pais;
+		return "Nombre : " +this.nombre + " "+ this.apellido+ "\n"  + "Edad :"+ this.edad + "\n"  + "Pais : " + this.pais;
 	}
 
 }
+var persona = new ClinicaLab("Blanca","Perez",19,"Femenino","Santiago","Chile");
+
+describe("Ejercicios_objetos2",function(){
+	describe("Ejercios1",function(){
+		it("Prueba de (1,10)",function(){
+			assert.equal(55,sumaParametros(1,10));
+		});
+	});
+	describe("Ejercicio 2", function(){
+		it("Prueba de You're awesome",function(){
+			assert.equal("You're awesome",estudiante.mensaje());
+		});
+	});
+	describe("Ejercicio 3",function(){
+		it("Prueba de arreglo",function(){
+			assert.deepEqual("propiedad1-->6,propiedad2-->5,propiedad3-->4,propiedad4-->3,propiedad5-->2,propiedad6-->1",textos([6,5,4,3,2,1]));
+		});
+	});
+	describe("Ejercicio 4",function(){
+		it("Prueba de ficha",function(){
+			assert.equal("Nombre : " + "Blanca" + " " + "Perez" + "\n"  + "Edad :"+ 19 + "\n"  + "Pais : " + "Chile",persona.ficha());
+		});
+	});
+});	
